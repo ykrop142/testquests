@@ -11,7 +11,7 @@ define('LARAVEL_START', microtime(true));
 
 /*
 |--------------------------------------------------------------------------
-| Register The Auto Loader 1s11
+| Register The Auto Loader
 |--------------------------------------------------------------------------
 |
 | Composer provides a convenient, automatically generated class loader for
@@ -26,11 +26,10 @@ require __DIR__.'/../vendor/autoload.php';
 /*
 |--------------------------------------------------------------------------
 | Turn On The Lights
-| ntest
 |--------------------------------------------------------------------------
 |
 | We need to illuminate PHP development, so let us turn on the lights.
-| This bootstraps thde framework and gets it ready for use, then it
+| This bootstraps the framework and gets it ready for use, then it
 | will load up this application so that we can run it and send
 | the responses back to the browser and delight our users.
 |
