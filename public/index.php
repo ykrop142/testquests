@@ -11,7 +11,7 @@ define('LARAVEL_START', microtime(true));
 
 /*
 |--------------------------------------------------------------------------
-| Register The Auto Loader 1s
+| Register The Auto Loader 1s11
 |--------------------------------------------------------------------------
 |
 | Composer provides a convenient, automatically generated class loader for
