@@ -15,6 +15,12 @@
     <li>
         <a href="/testbd">bd</a>
     </li>
+    <li>
+        <a href="/admin">admin</a>
+    </li>
+    <li>
+        <a href="/admin/create">admin/create</a>
+    </li>
 </ul>
 </body>
 </html>
