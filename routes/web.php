@@ -21,5 +21,8 @@ Route::get('/contact',function (){
     return view('contact');
 });
 
-Route::get('admin','GreenkrasBans@viewers');
+Route::get('/admin','GreenkrasBans@viewers');
+Route::post('/admin','GreenkrasBans@storenewban');
+Route::get('/admin/create','GreenkrasBans@create');
+
 
