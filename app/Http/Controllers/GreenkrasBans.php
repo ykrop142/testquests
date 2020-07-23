@@ -24,6 +24,5 @@ class GreenkrasBans extends Controller
         $ban->validity=request('validity');
         $ban-> save();
         return redirect('/admin');
-        //return request()->all();
     }
 }
