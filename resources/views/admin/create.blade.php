@@ -13,14 +13,10 @@
     <title>Бан</title>
 </head>
 <body>
-<div class="modal" >
-
-</div>
-<!-- Button trigger modal -->
+<!-- Button ban modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#banModal">
     Banhammer
 </button>
-
 <!-- Modal -->
 <div class="modal fade" id="banModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -49,5 +45,6 @@
         </div>
     </div>
 </div>
+
 </body>
 </html>
