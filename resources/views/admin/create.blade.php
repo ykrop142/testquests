@@ -46,5 +46,29 @@
     </div>
 </div>
 
+<!-- Button test modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#testModal">
+    testModal
+</button>
+<!-- Modal -->
+<div class="modal fade" id="testModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ModalLabel">testModal</h5>
+            </div>
+            <div class="modal-body">
+                <form action="" method="get">
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                        <button type="submit" class="btn btn-primary">Заблокировать</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
