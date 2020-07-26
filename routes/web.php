@@ -17,12 +17,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/contact',function (){
-    return view('contact');
-});
-
-Route::get('/admin','GreenkrasBans@viewers');
-Route::post('/admin','GreenkrasBans@storenewban');
-Route::get('/admin/create','GreenkrasBans@create');
-
+//Route::get('/contact',function (){
+//    return view('contact');
+//});
+//
+//Route::get('/admin','GreenkrasBans@viewers');
+//Route::post('/admin','GreenkrasBans@storenewban');
+//Route::get('/admin/create','GreenkrasBans@create');
+Route::resource('admin','GreenKrasBPost');
 
