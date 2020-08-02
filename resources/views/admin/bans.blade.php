@@ -50,7 +50,9 @@
 @section('content')
     <p ><h2 id="titleb">Банлист</h2></p>
 @endsection
-
+@foreach($user as $users)
+    {{$users->login}}
+@endforeach
     <table bordercolor="black" border="1" class="tabb" width="100%">
         @foreach($ban as $bans)
             <tr>
