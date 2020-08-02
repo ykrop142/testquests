@@ -36,6 +36,11 @@ class GreenKrasBPost extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            'id_user' => ['required'],
+            'reason' => ['required'],
+            'validity' => ['required'],
+        ]);
         $ban = new Bans();
         $ban->id_user=request('id_user');
         $ban->reason=request('reason');
