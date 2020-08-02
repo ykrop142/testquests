@@ -37,13 +37,13 @@
                 <form action="/admin" method="post">
                     {{csrf_field()}}
                     <div>
-                        <input type="text" name="id_user" placeholder="Имя пользователя"/>
+                        <input type="text" required name="id_user" placeholder="Имя пользователя"/>
                     </div>
                     <div>
-                        <input type="text" name="reason" placeholder="Причина"/>
+                        <input type="text" required name="reason" placeholder="Причина"/>
                     </div>
                     <div>
-                        <input type="date" name="validity" placeholder="длительность" value="{{$dater}}"/>
+                        <input type="date" required name="validity" placeholder="длительность" value="{{$dater}}"/>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
@@ -54,5 +54,14 @@
         </div>
     </div>
 </div>
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 </body>
 </html>
