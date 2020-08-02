@@ -1,3 +1,8 @@
+<?php
+    use Carbon\Carbon;
+    $dater = Carbon::now()->addDays(30);
+    $dater= $dater-> toDateString();
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -38,7 +43,7 @@
                         <input type="text" name="reason" placeholder="Причина"/>
                     </div>
                     <div>
-                        <input type="date" name="validity" placeholder="длительность"/>
+                        <input type="date" name="validity" placeholder="длительность" value="{{$dater}}"/>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
