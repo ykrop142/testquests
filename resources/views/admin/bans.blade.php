@@ -11,7 +11,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <title>Банлист</title>
     <style>
-        .test1 {
+        .tabb {
+            position: absolute;
             width: 70%; /* Ширина блока */
             padding: 10px; /* Поля */
             margin-top: 10%; /* Отступ сверху */
@@ -20,7 +21,7 @@
             -moz-box-sizing: border-box; /* Для Firefox */
             box-sizing: border-box; /* Ширина блока с полями */
         }
-        #test2{
+        #titleb{
             position: absolute;
             top: 10%;
             left: 50%;
@@ -47,10 +48,10 @@
 <body>
 @extends('layout')
 @section('content')
-    <p ><h2 id="test2">Банлист</h2></p>
+    <p ><h2 id="titleb">Банлист</h2></p>
 @endsection
 
-    <table bordercolor="black" border="1" class="test1" width="100%">
+    <table bordercolor="black" border="1" class="tabb" width="100%">
         @foreach($ban as $bans)
             <tr>
                 <h3>
@@ -67,7 +68,7 @@
                         <button type="button" class="btnban btn-primary" data-toggle="modal" data-target="#editbanModal{{$bans->id}}">
                             Редактировать
                         </button>
-                        <button type="button" class="btnunban btn-primary" data-toggle="modal" data-target="#editbanModal{{$bans->id}}">
+                        <button type="button" class="btnunban btn-primary" data-toggle="modal" data-target="#editunbanModal{{$bans->id}}">
                             Разблокировать
                         </button>
                     </td>
@@ -82,8 +83,8 @@
                         </div>
                         <div class="modal-body">
                             <form action="/admin/{{$bans->id}}" method="post">
-                                {{method_field('PATCH')}}
-                                {{csrf_field()}}
+                                @method('PATCH')
+                                @csrf
                                 <div>
                                     <input type="text" name="id_user" placeholder="Имя пользователя" value="{{$bans->id_user}}"/>
                                 </div>
@@ -96,6 +97,30 @@
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
                                     <button type="submit" class="btn btn-primary">Сохранить</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="editunbanModal{{$bans->id}}" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="ModalLabel">Редактор бана</h5>
+                        </div>
+                        <div class="modal-body">
+                            <form action="/admin/{{$bans->id}}" method="post">
+                                @method('DELETE')
+                                @csrf
+                                <div>
+                                    Вы уверены, что хотите разблокировать пользователя: {{$bans->id_user}}
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+                                    <button type="submit" class="btn btn-primary">Подтвердить</button>
                                 </div>
                             </form>
                         </div>
