@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Bans;
+use App\Users;
 use Illuminate\Http\Request;
 
 class GreenKrasBPost extends Controller
@@ -14,8 +15,11 @@ class GreenKrasBPost extends Controller
      */
     public function index()
     {
+        $user = Users::all();
         $ban = Bans::all();
-        return view('admin.bans',compact('ban'));
+
+        return view('admin.bans',compact('ban'),compact('user'));
+       // return view('admin.bans',compact('user'));
     }
 
     /**
