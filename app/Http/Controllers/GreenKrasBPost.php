@@ -63,7 +63,7 @@ class GreenKrasBPost extends Controller
      */
     public function edit($id)
     {
-        $bans = Bans::find($id);
+        $bans = Bans::findOrFail($id);
         return view('admin.edit',compact('bans'));
     }
 
@@ -77,7 +77,7 @@ class GreenKrasBPost extends Controller
     public function update($id)
     {
 
-        $bans = Bans::find($id);
+        $bans = Bans::findOrFail($id);
         $bans->id_user=request('id_user');
         $bans->reason=request('reason');
         $bans->validity=request('validity');
@@ -91,8 +91,9 @@ class GreenKrasBPost extends Controller
      * @param  \App\Bans  $bans
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Bans $bans)
+    public function destroy($id)
     {
-        //
+        Bans::find($id)->delete();
+        return redirect('/admin');
     }
 }
