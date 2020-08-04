@@ -21,6 +21,12 @@ class GreenKrasBPost extends Controller
         return view('admin.bans',compact('ban'),compact('user'));
        // return view('admin.bans',compact('user'));
     }
+    public function indexuser()
+    {
+        //$user = new Users();
+        $user = Users::all();
+        return view('admin.users',compact('user'));
+    }
 
     /**
      * Show the form for creating a new resource.
