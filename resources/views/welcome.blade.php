@@ -28,9 +28,6 @@
 <!-- конец блока-->
 
 <script>
-
-
-
 // подключение слоев
     let cities = new Array();
 //
@@ -100,8 +97,6 @@
         popupAnchor: [-3, -76]
     });
 //
-
-
 </script>
 </body>
 </html>
