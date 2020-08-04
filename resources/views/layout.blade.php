@@ -10,5 +10,6 @@
         <li><a href="/">Главная</a></li>
         <li><a href="/admin">Банлист</a></li>
         <li><a href="/admin/create">Банхамер</a></li>
+        <li><a href="/admin/users">Пользователи</a></li>
     </ul>
 
