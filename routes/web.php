@@ -24,5 +24,7 @@ Route::get('/', function () {
 //Route::get('/admin','GreenkrasBans@viewers');
 //Route::post('/admin','GreenkrasBans@storenewban');
 //Route::get('/admin/create','GreenkrasBans@create');
+Route::get('admin/users','GreenKrasBPost@indexuser');
 Route::resource('admin','GreenKrasBPost');
+
 
