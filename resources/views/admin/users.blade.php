@@ -34,6 +34,23 @@
     <p ><h2 id="titleb">Информация о пользователях</h2></p>
 @endsection
 <table bordercolor="black" border="1" class="tabb" width="100%">
+    <tr>
+        <td>
+            Логин
+        </td>
+        <td>
+            Почта
+        </td>
+        <td>
+            Опыт
+        </td>
+        <td>
+            Подтверждение аккаунта
+        </td>
+        <td>
+            Дата регистрации
+        </td>
+    </tr>
 @foreach($user as $users)
 <tr>
     <h3>
@@ -52,7 +69,6 @@
         <td>
             {{$users->created_at}}
         </td>
-
     </h3>
 </tr>
 @endforeach
