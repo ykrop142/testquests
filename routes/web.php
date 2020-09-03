@@ -24,10 +24,13 @@ Route::get('/', function () {
 //Route::get('/admin','GreenkrasBans@viewers');
 //Route::post('/admin','GreenkrasBans@storenewban');
 //Route::get('/admin/create','GreenkrasBans@create');
-Route::get('admin/users','GreenKrasBPost@indexuser');
-Route::get('admin/panel', function () {
-    return view('admin.panel');
+Route::group(['prefix'=>'admin'],function (){
+    Route::get('users','GreenKrasBPost@indexuser');
+    Route::get('panel', function () {
+        return view('admin.panel');
+    });
+    Route::resource('','GreenKrasBPost');
 });
-Route::resource('admin','GreenKrasBPost');
+
 
 
