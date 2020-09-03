@@ -113,13 +113,12 @@
                             <h5 class="modal-title" id="ModalLabel">Редактор бана</h5>
                         </div>
                         <div class="modal-body">
-                            <form action="/admin/{{$bans->id}}" method="post">
+                            <form action="admin/{{$bans->id}}" method="post">
                                 @method('DELETE')
                                 @csrf
                                 <div>
                                     Вы уверены, что хотите разблокировать пользователя: {{$bans->id_user}}
                                 </div>
-
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
                                     <button type="submit" class="btn btn-primary">Подтвердить</button>

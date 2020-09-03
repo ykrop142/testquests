@@ -17,19 +17,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Route::get('/contact',function (){
-//    return view('contact');
-//});
-//
-//Route::get('/admin','GreenkrasBans@viewers');
-//Route::post('/admin','GreenkrasBans@storenewban');
-//Route::get('/admin/create','GreenkrasBans@create');
 Route::group(['prefix'=>'admin'],function (){
     Route::get('users','GreenKrasBPost@indexuser');
     Route::get('panel', function () {
         return view('admin.panel');
     });
-    Route::resource('','GreenKrasBPost');
+    Route::get('/','GreenKrasBPost@index');
+    Route::patch('/{id}','GreenKrasBPost@update');
+    Route::delete('/{id}','GreenKrasBPost@destroy');
+   // Route::resource('','GreenKrasBPost');
 });
 
 
