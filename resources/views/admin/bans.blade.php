@@ -7,49 +7,51 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <title>Банлист</title>
     <style>
         .tabb {
-            position: absolute;
-            width: 70%; /* Ширина блока */
+            width: 80%; /* Ширина блока */
             padding: 10px; /* Поля */
-            margin-top: 10%; /* Отступ сверху */
-            margin-left: 10%; /* Отступ сверху */
+            margin-top: 5%; /* Отступ сверху */
+            margin-left: 5%; /* Отступ сверху */
             border: 2px solid #000; /* Параметры рамки */
             -moz-box-sizing: border-box; /* Для Firefox */
             box-sizing: border-box; /* Ширина блока с полями */
         }
-        #titleb{
-            position: absolute;
-            top: 10%;
-            left: 50%;
-        }
-        .btnban {
+        #btnban {
             background: #ea2626;
             border: 0;
             border-right: 1px solid #cbcbcc;
-            height: 100%;
-            width: 100%;
+            height: 50%;
+            width: 49%;
         }
-        .btnunban {
+        #btnunban {
             background: #16862a;
             border: 0;
             border-right: 1px solid #cbcbcc;
-            height: 100%;
-            width: 100%;
+            height: 50%;
+            width: 50%;
         }
-        .btn:hover {
+        #btnban:hover {
+            background: rgba(105, 125, 219, 0.95);
+        }
+        #btnunban:hover {
             background: rgba(105, 125, 219, 0.95);
         }
     </style>
 </head>
 <body>
 @extends('layout')
-@section('content')
-    <p ><h2 id="titleb">Банлист</h2></p>
+
+@section('title', 'Банлист')
+
+@section('sidebar')
+    @parent
 @endsection
+
+@section('namestr', 'Банлист')
+
+@section('content')
+
 @foreach($user as $users)
     {{$users->login}}
 @endforeach
@@ -67,10 +69,10 @@
                         {{$bans->validity}}
                     </td>
                     <td>
-                        <button type="button" class="btnban btn-primary" data-toggle="modal" data-target="#editbanModal{{$bans->id}}">
+                        <button type="button" id='btnban' class="btn-primary" data-toggle="modal" data-target="#editbanModal{{$bans->id}}">
                             Редактировать
                         </button>
-                        <button type="button" class="btnunban btn-primary" data-toggle="modal" data-target="#editunbanModal{{$bans->id}}">
+                        <button type="button" id='btnunban' class="btn-primary" data-toggle="modal" data-target="#editunbanModal{{$bans->id}}">
                             Разблокировать
                         </button>
                     </td>
@@ -130,6 +132,6 @@
             </div>
         @endforeach
 </table>
-
+@endsection
 </body>
 </html>
