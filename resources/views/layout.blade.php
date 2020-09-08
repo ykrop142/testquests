@@ -6,7 +6,7 @@
 </head>
 <body>
 @section('sidebar')
-    <ul id="menu">
+    <ul id="menu" style="position: relative; z-index: 2;">
         <li><a href="/main">главная страница</a></li>
         <li><a href="/">Карта</a></li>
         <li><a href="/admin">Банлист</a></li>
