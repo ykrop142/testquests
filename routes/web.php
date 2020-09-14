@@ -20,6 +20,9 @@ Route::get('main', function () {
     return view('main');
 });
 
+Route::get('reg','GKUserAdd@create');
+Route::post('reg','GKUserAdd@store')->middleware('checkreg');;
+
 Route::group(['prefix'=>'admin'],function (){
     Route::get('users','GreenKrasBPost@indexuser');
     Route::get('panel', function () {
