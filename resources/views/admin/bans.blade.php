@@ -22,14 +22,14 @@
             border: 0;
             border-right: 1px solid #cbcbcc;
             height: 50%;
-            width: 49%;
+            width: 47%;
         }
         #btnunban {
             background: #16862a;
             border: 0;
             border-right: 1px solid #cbcbcc;
             height: 50%;
-            width: 50%;
+            width: 48%;
         }
         #btnban:hover {
             background: rgba(105, 125, 219, 0.95);
