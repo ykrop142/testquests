@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Users;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class GKUserAdd extends Controller
 {
@@ -37,12 +38,12 @@ class GKUserAdd extends Controller
     {
         $reg = new Users();
         $chek=$reg->login=request('login');
-        $reger=Users::find($chek);
-        if(!empty($reger))
-        {
-           echo 'Пользователь с таким логином уже существует';
-           header("refresh: 4;url= https://test.greenkras.ru/main");
-        }
+        $reger=DB::table('users')->select('login')->where('login','=',$chek)->first();
+        if(!empty($reger->login))
+            {
+               echo 'Пользователь с таким логином уже существует';
+               header("refresh: 4;url= https://test.greenkras.ru/main");
+            }
         else
             {
              $reg->login=request('login');
