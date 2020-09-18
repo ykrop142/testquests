@@ -27,6 +27,9 @@ class CheckReg
             {
                 echo 'Ошибка запроса. Повторите через пару минут';
             }
+        if($request->password<=5){
+            echo 'Пароль должен содержать минимум 5 символов';
+        }
         return $next($request);
     }
 }
