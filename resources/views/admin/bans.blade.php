@@ -1,49 +1,41 @@
-<!doctype html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <style>
-        .tabb {
-            width: 80%; /* Ширина блока */
-            padding: 10px; /* Поля */
-            margin-top: 5%; /* Отступ сверху */
-            margin-left: 5%; /* Отступ сверху */
-            border: 2px solid #000; /* Параметры рамки */
-            -moz-box-sizing: border-box; /* Для Firefox */
-            box-sizing: border-box; /* Ширина блока с полями */
-        }
-        #btnban {
-            background: #ea2626;
-            border: 0;
-            border-right: 1px solid #cbcbcc;
-            height: 50%;
-            width: 47%;
-        }
-        #btnunban {
-            background: #16862a;
-            border: 0;
-            border-right: 1px solid #cbcbcc;
-            height: 50%;
-            width: 48%;
-        }
-        #btnban:hover {
-            background: rgba(105, 125, 219, 0.95);
-        }
-        #btnunban:hover {
-            background: rgba(105, 125, 219, 0.95);
-        }
-    </style>
-</head>
-<body>
 @extends('layout')
 
 @section('title', 'Банлист')
-
+<head>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+</head>
+<style>
+    .tabb {
+        width: 80%; /* Ширина блока */
+        padding: 10px; /* Поля */
+        margin-top: 5%; /* Отступ сверху */
+        margin-left: 5%; /* Отступ сверху */
+        border: 2px solid #000; /* Параметры рамки */
+        -moz-box-sizing: border-box; /* Для Firefox */
+        box-sizing: border-box; /* Ширина блока с полями */
+    }
+    #btnban {
+        background: #ea2626;
+        border: 0;
+        border-right: 1px solid #cbcbcc;
+        height: 50%;
+        width: 47%;
+    }
+    #btnunban {
+        background: #16862a;
+        border: 0;
+        border-right: 1px solid #cbcbcc;
+        height: 50%;
+        width: 48%;
+    }
+    #btnban:hover {
+        background: rgba(105, 125, 219, 0.95);
+    }
+    #btnunban:hover {
+        background: rgba(105, 125, 219, 0.95);
+    }
+</style>
 @section('sidebar')
     @parent
 @endsection
@@ -133,5 +125,4 @@
         @endforeach
 </table>
 @endsection
-</body>
-</html>
+

@@ -12,23 +12,50 @@
 </head>
 <body>
 @section('sidebar')
-    <ul id="menu" style="position: relative; z-index: 2;">
+    <ul id="menu" align="left" style="position: relative ; z-index: 2;">
         <li><a href="/main">главная страница</a></li>
         <li><a href="/">Карта</a></li>
         <li><a href="/admin">Банлист</a></li>
         <li><a href="/admin/create">Забанить</a></li>
         <li><a href="/admin/users">Инфо о пользователях</a></li>
+        <li>
+            <?php
+                if (Auth::check()) {
+            ?>
+            <div class="userlogout">
+                <a class="dropdown-item" href="{{ route('logout') }}"
+                   onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">
+                    <button> {{ __('Выйти') }}</button>
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+            </div>
+            <?php
+                }
+                else
+                    {
+            ?>
+            <div class="userlogin">
+                <a class="userlogin" href="{{ route('login') }}"><button>{{ __('Войти') }}</button></a>
+            </div>
+            <?php
+                }
+            ?>
+        </li>
     </ul>
 @show
 
 <div>
-    <h2 style="position: absolute;top: 10%;left: 50%">
+    <h2 style="position: relative ;top: 10%;left: 50%">
         @yield('namestr')
     </h2>
-
 </div>
+
 <div class="container">
     @yield('content')
 </div>
+
 </body>
 </html>
