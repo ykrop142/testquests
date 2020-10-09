@@ -18,11 +18,12 @@ class CreateUsersGKTable extends Migration
             $table->string('login');
             $table->string('password');
             $table->string('email');
-            $table->string('token');
-            $table->integer('id_tit');
-            $table->integer('exp');
-            $table->string('avatar');
-            $table->boolean('auth');
+            $table->string('token')->default('Null');
+            $table->string('remember_token')->default('Null');
+            $table->integer('id_tit')->default('0');
+            $table->integer('exp')->default('0');
+            $table->string('avatar')->default('linkava');
+            $table->boolean('auth')->default('0');
             $table->date('created_at');
         });
     }
