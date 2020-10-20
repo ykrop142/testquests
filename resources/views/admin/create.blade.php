@@ -13,7 +13,7 @@
     @parent
 @endsection
 
-@section('namestr', 'Banhammer')
+@section('namestr', '')
 
 @section('content')
 

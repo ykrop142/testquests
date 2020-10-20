@@ -36,8 +36,8 @@
     let streetLayer = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=sk.eyJ1IjoieWtyb3AxNDIiLCJhIjoiY2tiOXdnNGYzMDBwMTJzcnI0aGZodGN6dyJ9.jrFbhg3G3pKCsXoxmJmcYw', {
         maxNativeZoom: 19,
         maxZoom: 22,
-        attribution: '<a href="https://greenkras.ru/">ykrop142</a>, ' +
-            'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        attribution: '<a id="3" href="https://greenkras.ru/">ykrop142</a>, ' +
+            'Imagery © <a id="3" href="https://www.mapbox.com/">Mapbox</a>',
         id: 'mapbox/streets-v11',
         tileSize: 512,
         zoomOffset: -1
