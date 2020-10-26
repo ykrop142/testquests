@@ -23,32 +23,42 @@
     <nav>
         <ul class="main">
             <li>
-                <a href="/main">Главная страница</a>
-                <ul class="drop menu1">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">news</a></li>
-                    <li><a href="#">contact</a></li>
-                    <li><a href="#">about</a></li>
-                </ul>
+                <details>
+                    <summary>Главная страница</summary>
+
+                    <summary><a href="/main">Главная страница</a></summary>
+
+                    <summary><a href="#">Home</a></summary>
+                    <summary><a href="#">news</a></summary>
+                    <summary><a href="#">contact</a></summary>
+                    <summary><a href="#">about</a></summary>
+
+                </details>
             </li>
             <li><a href="/">Карта</a>
                 <ul class="drop menu2">
                 </ul>
             </li>
-            <li><a href="/admin">Админка</a>
-                <ul class="drop menu3">
-                    <li><a href="/admin/create">Забанить</a></li>
-                    <li><a href="/admin/users">Инфо о пользователях</a></li>
-                    <li><a href="#">тест 3</a></li>
-                    <li><a href="#">тест 4</a></li>
-                </ul>
+            <li>
+                <details>
+                    <summary>Админка</summary>
+                    <summary><a href="/admin">Админка</a></summary>
+                    <summary><a href="/admin/create">Забанить</a></summary>
+                    <summary><a href="/admin/users">инфо юз</a></summary>
+                    <summary><a href="#">тест 3</a></summary>
+                    <summary><a href="#">тест 4</a></summary>
+                </details>
+
             </li>
-            <li><a href="#">Личный кабинет</a>
-                <ul class="drop menu4">
-                    <li><a href="#">Профиль</a></li>
-                    <li><a href="#">Статистика</a></li>
-                    <li><a href="#">Настройки</a></li>
-                    <li>
+            <li>
+                <details>
+                    <summary>Личный кабинет</summary>
+                    <summary> <a href="#">Личный кабинет</a></summary>
+
+                    <summary><a href="#">Профиль</a></summary>
+                    <summary><a href="#">Статистика</a></summary>
+                    <summary><a href="#">Настройки</a></summary>
+                    <summary>
                         <?php
                         if (Auth::check()) {
                         ?>
@@ -68,8 +78,8 @@
                         <?php
                         }
                         ?>
-                    </li>
-                </ul>
+                    </summary>
+                </details>
             </li>
         </ul>
     </nav>
