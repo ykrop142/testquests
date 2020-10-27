@@ -3,15 +3,13 @@ ul {
     margin-top: 0; /* Отступ сверху */
     margin-bottom: 0; /* Отступ снизу */
 }
-
 nav {
     position: relative;
-    width: 800px;
-    height: 25px;
+    width: 100%;
+    height: 40px;
     margin: 0px auto;
     background-color: rgb(39, 121, 39);
     text-align: center;
-    border-radius: 4px;
 }
 .textcolors{
     background-color: rgb(39, 121, 39);
@@ -20,14 +18,31 @@ nav {
     padding: 0;
     margin: 0 4%;
     float: left;
-
 }
-.main > li > details> summary{
-    background-color: rgb(255, 255, 255);
-    text-align: center;
-
+.main > li > a {
+color: #0b2e13;
 }
-.main > li > details> summary > a {
-    color: rgb(0, 0, 0);
+.dropdown-menu > li > a {
+    color: #0b2e13;
+    width: 100%;
+}
+.dropdown-menu > li > a{
+    text-align: right;
+    padding-left: 11px;
+    padding-right: 5px;
 }
 
+.userAvatar{
+    height: 40px;
+    width: 40px;
+    margin-right: 8px;
+}
+i {
+    margin-left: 5px;
+    padding-right: 11px;
+}
+.divider{
+    border-top:1px solid #e5e5e5;
+    padding-top:5px;
+    margin-top:5px;
+}
