@@ -24,15 +24,12 @@
         <ul class="main">
             <li>
                 <details>
-                    <summary>Главная страница</summary>
-
+                    <summary class="textcolors">Главная страница</summary>
                     <summary><a href="/main">Главная страница</a></summary>
-
                     <summary><a href="#">Home</a></summary>
                     <summary><a href="#">news</a></summary>
                     <summary><a href="#">contact</a></summary>
                     <summary><a href="#">about</a></summary>
-
                 </details>
             </li>
             <li><a href="/">Карта</a>
@@ -41,7 +38,7 @@
             </li>
             <li>
                 <details>
-                    <summary>Админка</summary>
+                    <summary class="textcolors">Админка</summary>
                     <summary><a href="/admin">Админка</a></summary>
                     <summary><a href="/admin/create">Забанить</a></summary>
                     <summary><a href="/admin/users">инфо юз</a></summary>
@@ -52,9 +49,8 @@
             </li>
             <li>
                 <details>
-                    <summary>Личный кабинет</summary>
+                    <summary class="textcolors">Личный кабинет</summary>
                     <summary> <a href="#">Личный кабинет</a></summary>
-
                     <summary><a href="#">Профиль</a></summary>
                     <summary><a href="#">Статистика</a></summary>
                     <summary><a href="#">Настройки</a></summary>
@@ -67,14 +63,12 @@
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>
-
                         <?php
                         }
                         else
                         {
                         ?>
                         <a href="{{ route('login') }}">{{ __('Войти') }}</a>
-
                         <?php
                         }
                         ?>

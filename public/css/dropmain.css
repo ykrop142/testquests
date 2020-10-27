@@ -1,76 +1,33 @@
-* {
-    margin: 0;
-    padding: 0;
-    font-family: 'Montserrat', sans-serif;
-    box-sizing: border-box;
-}
-
-body {
-    background-color: #ffffff;
-
-    background-size: cover;
-    height: 100vh;
-}
-
 ul {
     list-style: none;
+    margin-top: 0; /* Отступ сверху */
+    margin-bottom: 0; /* Отступ снизу */
 }
 
 nav {
-    width: 650px;
-    height: 45px;
+    position: relative;
+    width: 800px;
+    height: 25px;
     margin: 0px auto;
     background-color: rgb(39, 121, 39);
     text-align: center;
     border-radius: 4px;
 }
+.textcolors{
+    background-color: rgb(39, 121, 39);
+}
 .main > li {
-    margin: 0 2%;
+    padding: 0;
+    margin: 0 4%;
     float: left;
+
+}
+.main > li > details> summary{
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+
+}
+.main > li > details> summary > a {
+    color: rgb(0, 0, 0);
 }
 
-a {
-    text-decoration: none;
-    color: #ffff0d;
-    text-transform: capitalize;
-    font-family: monospace;
-    display: block;
-    padding: 10px 5px;
-    font-size: 16px;
-    transition: background-color .5s ease-in-out;
-}
-
-a:hover {
-    background-color: #19ff00;
-}
-
-.drop li {
-    opacity: 0;
-    transform-origin: top center;
-}
-
-.drop li a {
-    background-color: rgba(23,23,50,.7);
-    padding: 10px 0;
-}
-
-
-
-/* my button style */
-.white-mode {
-    text-decoration: none;
-    padding: 7px 10px;
-    background-color: #122;
-    border-radius: 3px;
-    color: #FFF;
-    transition: .35s ease-in-out;
-    position: absolute;
-    left: 15px;
-    bottom: 15px;
-    font-family: sans-serif;
-}
-
-.white-mode:hover {
-    background-color: #FFF;
-    color: #122;
-}
