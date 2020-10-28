@@ -50,16 +50,31 @@
             </li>
             <li class="dropdown" id="liucp">
                 <a href="javascript:void(0);" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img class="userAvatar" src="https://thumbs.dreamstime.com/z/123-%D0%BD%D0%BE%D0%BC%D0%B5%D1%80%D0%B0-%D0%BF%D0%BB%D0%B0%D1%81%D1%82%D0%B8%D1%87%D0%BD%D0%BE%D0%B3%D0%BE-11904974.jpg" alt=""><span class="hidden-xs">username</span>
+                    <img class="userAvatar" src="https://thumbs.dreamstime.com/z/123-%D0%BD%D0%BE%D0%BC%D0%B5%D1%80%D0%B0-%D0%BF%D0%BB%D0%B0%D1%81%D1%82%D0%B8%D1%87%D0%BD%D0%BE%D0%B3%D0%BE-11904974.jpg" alt=""><span class="hidden-xs">
+                    <?php
+                     if(empty(Auth::user()->login))
+                     {
+                     ?>
+                     <?php
+                     }
+                     else
+                     {
+                     ?>
+                        {{Auth::user()->login}}
+                     <?php
+                     }
+                     ?>
+                    </span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a href="/profile"><i class="fas fa-user"></i>Профиль</a></li>
-                    <li><a href="/ucp"><i class="fas fa-cog"></i>Настройки</a></li>
-                    <li><a href="/ucp"><i class="fas fa-bell"></i>Голосования</a></li>
+                    <li><a href="/lk/profile"><i class="fas fa-user"></i>Профиль</a></li>
+                    <li><a href="/lk/ucp"><i class="fas fa-cog"></i>Настройки</a></li>
+                    <li><a href="/lk/ucp"><i class="fas fa-bell"></i>Голосования</a></li>
                     <li class="divider"></li>
                     <li>
                         <?php
-                            if (Auth::check()) {
+                            if (Auth::check())
+                            {
                         ?>
                         <a href="{{ route('logout') }}" onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();"><i class="fas fa-power-off"></i>{{ __('Выйти') }}</a>
