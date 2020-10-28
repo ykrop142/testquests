@@ -21,17 +21,21 @@ Route::get('main', function () {
 });
 
 Route::group(['prefix'=>'admin'],function (){
-    Route::get('users','GreenKrasBPost@indexuser');
+    Route::get('users','GKBanAdd@indexuser');
     Route::get('panel', function () {
         return view('admin.panel');
     });
-    Route::get('/','GreenKrasBPost@index');
-    Route::get('/create','GreenKrasBPost@create');
-    Route::post('/create','GreenKrasBPost@store');
-    Route::patch('/{id}','GreenKrasBPost@update');
-    Route::delete('/{id}','GreenKrasBPost@destroy');
+    Route::get('/','GKBanAdd@index');
+    Route::get('/create','GKBanAdd@create');
+    Route::post('/create','GKBanAdd@store');
+    Route::patch('/{id}','GKBanAdd@update');
+    Route::delete('/{id}','GKBanAdd@destroy');
+});
+
+Route::group(['prefix'=>'lk'],function(){
+    Route::get('/profile','GKUserProfile@index');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/main', 'HomeController@index')->name('main');

@@ -6,7 +6,7 @@ use App\Bans;
 use App\Users;
 use Illuminate\Http\Request;
 
-class GreenKrasBPost extends Controller
+class GKBanAdd extends Controller
 {
     /**
      * Display a listing of the resource.
