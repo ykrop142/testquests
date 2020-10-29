@@ -14,10 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('main', function () {
     return view('main');
+});
+Route::get('map', function () {
+    return view('welcome');
 });
 
 Route::group(['prefix'=>'admin'],function (){
@@ -38,4 +38,4 @@ Route::group(['prefix'=>'lk'],function(){
 
 Auth::routes();
 
-Route::get('/main', 'HomeController@index')->name('main');
+Route::get('/', 'HomeController@index')->name('main');

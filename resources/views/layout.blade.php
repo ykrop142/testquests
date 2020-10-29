@@ -26,14 +26,14 @@
             <li>
                 <details>
                     <summary class="textcolors">Главная страница</summary>
-                    <summary><a href="/main">Главная страница</a></summary>
+                    <summary><a href="/">Главная страница</a></summary>
                     <summary><a href="#">Home</a></summary>
                     <summary><a href="#">news</a></summary>
                     <summary><a href="#">contact</a></summary>
                     <summary><a href="#">about</a></summary>
                 </details>
             </li>
-            <li><a href="/">Карта</a>
+            <li><a href="map">Карта</a>
                 <ul class="drop menu2">
                 </ul>
             </li>
@@ -49,8 +49,12 @@
 
             </li>
             <li class="dropdown" id="liucp">
+                <?php
+                if (Auth::check())
+                {
+                ?>
                 <a href="javascript:void(0);" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img class="userAvatar" src="https://thumbs.dreamstime.com/z/123-%D0%BD%D0%BE%D0%BC%D0%B5%D1%80%D0%B0-%D0%BF%D0%BB%D0%B0%D1%81%D1%82%D0%B8%D1%87%D0%BD%D0%BE%D0%B3%D0%BE-11904974.jpg" alt=""><span class="hidden-xs">
+                    <img class="userAvatar" src="{{Auth::user()->avatar}}" alt=""><span class="hidden-xs">
                     <?php
                      if(empty(Auth::user()->login))
                      {
@@ -72,10 +76,6 @@
                     <li><a href="/lk/ucp"><i class="fas fa-bell"></i>Голосования</a></li>
                     <li class="divider"></li>
                     <li>
-                        <?php
-                            if (Auth::check())
-                            {
-                        ?>
                         <a href="{{ route('logout') }}" onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();"><i class="fas fa-power-off"></i>{{ __('Выйти') }}</a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
