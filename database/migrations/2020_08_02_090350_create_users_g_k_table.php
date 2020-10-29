@@ -22,7 +22,9 @@ class CreateUsersGKTable extends Migration
             $table->string('remember_token')->default('Null');
             $table->integer('id_tit')->default('0');
             $table->integer('exp')->default('0');
-            $table->string('avatar')->default('linkava');
+            $table->integer('lvl')->default('1');
+            $table->integer('varn')->default('0');
+            $table->string('avatar')->default('https://test.greenkras.ru/image/avatars/noavatar.png');
             $table->boolean('auth')->default('0');
             $table->date('created_at');
         });
