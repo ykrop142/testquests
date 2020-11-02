@@ -15,10 +15,8 @@ class GKBanAdd extends Controller
      */
     public function index()
     {
-        $user = Users::all();
         $ban = Bans::all();
-
-        return view('admin.bans',compact('ban'),compact('user'));
+        return view('admin.bans',compact('ban'));
        // return view('admin.bans',compact('user'));
     }
     public function indexuser()

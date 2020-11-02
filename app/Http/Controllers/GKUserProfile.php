@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Users;
+
 use Illuminate\Http\Request;
+use DB;
+use Auth;
+use mysql_xdevapi\Table;
 
 class GKUserProfile extends Controller
 {
@@ -14,7 +18,9 @@ class GKUserProfile extends Controller
      */
     public function index()
     {
-        return view('lk.profile');
+        $idtit=(Auth::user()->id_tit);
+        $titles = DB::table('titles')->find($idtit);
+        return view('lk.profile',compact('titles'));
     }
 
     /**
