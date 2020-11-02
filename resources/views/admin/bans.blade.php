@@ -19,15 +19,17 @@
         background: #ea2626;
         border: 0;
         border-right: 1px solid #cbcbcc;
-        height: 50%;
-        width: 47%;
+        height: 100%;
+        width: 100%;
+        padding: 0px;
     }
     #btnunban {
         background: #16862a;
         border: 0;
         border-right: 1px solid #cbcbcc;
-        height: 50%;
-        width: 48%;
+        height: 100%;
+        width: 100%;
+        padding: 0px;
     }
     #btnban:hover {
         background: rgba(105, 125, 219, 0.95);
@@ -44,9 +46,6 @@
 
 @section('content')
 
-@foreach($user as $users)
-    {{$users->login}}
-@endforeach
     <table bordercolor="black" border="1" class="tabb" width="100%">
         @foreach($ban as $bans)
             <tr>
@@ -64,6 +63,8 @@
                         <button type="button" id='btnban' class="btn-primary" data-toggle="modal" data-target="#editbanModal{{$bans->id}}">
                             Редактировать
                         </button>
+                    </td>
+                    <td>
                         <button type="button" id='btnunban' class="btn-primary" data-toggle="modal" data-target="#editunbanModal{{$bans->id}}">
                             Разблокировать
                         </button>
