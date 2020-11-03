@@ -48,6 +48,9 @@
         <td>
             Дата регистрации
         </td>
+        <td>
+            Онлайн
+        </td>
     </tr>
 @foreach($user as $users)
 <tr>
@@ -66,6 +69,13 @@
         </td>
         <td>
             {{$users->created_at}}
+        </td>
+        <td>
+            @if($users->isOnline())
+                <span style="color:green">В сети</span>
+            @else
+                <span style="color:red">Не в сети</span>
+            @endif
         </td>
     </h3>
 </tr>
