@@ -15,10 +15,16 @@
     <div class="container" style="z-index:1">
         <div class="row">
             <div class="col">
+                @if(Auth::user()->isOnline())
+                    <span style="color:green">В сети</span>
+                @else
+                    <span style="color:red">Не в сети</span>
+                @endif
+                <p></p>
                 <p> <img class="userAvatar" src="{{Auth::user()->avatar}}" alt="" style="width: 200px;height: 200px"></p>
                 <p> " Прогресс бар " {{Auth::user()->exp}}</p>
                 <p> Ваш уровень : {{Auth::user()->lvl}}</p>
-                <p> Титул [ <font style="color:{{$titles->RGB}}">{{$titles->name}} </font>]</p>
+                <p> Роль [ <font style="color:{{$titles->RGB}}">{{$titles->name}} </font>]</p>
             </div>
             <div class="col">
                 <p>Логин: {{Auth::user()->login}}</p>
