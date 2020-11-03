@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html style="overflow:  hidden;">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>@yield('title')</title>
@@ -17,12 +17,11 @@
 
 <body>
 @section('sidebar')
-    <div class="containermain" style="height: 64px;
-    background-color: green; position: sticky; z-index:100">
+    <div class="containermain">
         <div class="row">
             <div class="col">
-                <a href="javascript:void(0);" class="user-profile" data-toggle="dropdown" aria-expanded="false">
-                    <span class="hidden-xs">
+                <a href="javascript:void(0);" class="linkdropmenu" data-toggle="dropdown" aria-expanded="false">
+                    <img class="userAvatar" src="/image/iconmenu/mainico.svg" alt="" style="width: 64px;height: 64px"><span class="hidden-xs">
                    Главная страница
                     </span>
                 </a>
@@ -34,11 +33,13 @@
                 </ul>
             </div>
             <div class="col">
-                <a href="/map" class="user-profile">Карта</a>
+                <a href="/map" class="linkdropmenu"><img class="userAvatar" src="/image/iconmenu/mapico.PNG" alt="" style="width: 64px;height: 64px">
+                             Карта
+                </a>
             </div>
             <div class="col">
-                <a href="javascript:void(0);" class="user-profile" data-toggle="dropdown" aria-expanded="false">
-                    <span class="hidden-xs">
+                <a href="javascript:void(0);" class="linkdropmenu" data-toggle="dropdown" aria-expanded="false">
+                    <img class="userAvatar" src="/image/iconmenu/adminico.png" alt="" style="width: 64px;height: 64px"><span class="hidden-xs">
                     Админка
                     </span>
                 </a>
@@ -53,7 +54,7 @@
                 if (Auth::check())
                 {
                 ?>
-                <a href="javascript:void(0);" class="user-profile" data-toggle="dropdown" aria-expanded="false">
+                <a href="javascript:void(0);" class="linkdropmenu" data-toggle="dropdown" aria-expanded="false">
                     <img class="userAvatar" src="{{Auth::user()->avatar}}" alt="" style="width: 64px;height: 64px"><span class="hidden-xs">
                     <?php
                         if(empty(Auth::user()->login))
