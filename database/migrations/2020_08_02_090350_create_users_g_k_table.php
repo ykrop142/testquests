@@ -20,13 +20,14 @@ class CreateUsersGKTable extends Migration
             $table->string('email');
             $table->string('token')->default('Null');
             $table->string('remember_token')->default('Null');
-            $table->integer('id_tit')->default('0');
+            $table->integer('id_tit')->default('1');
             $table->integer('exp')->default('0');
             $table->integer('lvl')->default('1');
             $table->integer('varn')->default('0');
             $table->string('avatar')->default('https://test.greenkras.ru/image/avatars/noavatar.png');
             $table->boolean('auth')->default('0');
-            $table->date('created_at');
+            $table->dateTime('last_online_at');
+            $table->dateTime('created_at');
         });
     }
 
