@@ -43,6 +43,15 @@
             Опыт
         </td>
         <td>
+            Уровень
+        </td>
+        <td>
+            Роль
+        </td>
+        <td>
+            Жалоб
+        </td>
+        <td>
             Подтверждение аккаунта
         </td>
         <td>
@@ -51,12 +60,20 @@
         <td>
             Онлайн
         </td>
+        @foreach($user as $users)
+            @if($users->isOnline())
+            @else
+                <td>
+                    <span>Последняя авторизация</span>
+                </td>
+            @endif
+        @endforeach
     </tr>
 @foreach($user as $users)
 <tr>
     <h3>
         <td>
-            {{$users->login}}
+            <a href="/admin/viewprofil/{{$users->id}}">{{$users->login}}</a>
         </td>
         <td>
             {{$users->email}}
@@ -65,18 +82,39 @@
             {{$users->exp}}
         </td>
         <td>
-            {{$users->auth}}
+            {{$users->lvl}}
+        </td>
+        <td>
+            <text style="color: {{$users->rgb}}">{{$users->id_tit}}</text>
+        </td>
+        <td>
+            {{$users->varn}}
+        </td>
+        <td>
+            @if($users->auth==0)
+                Почта не подтверждена
+            @else
+                Почта подтверждена
+            @endif
         </td>
         <td>
             {{$users->created_at}}
         </td>
-        <td>
-            @if($users->isOnline())
+        @if($users->isOnline())
+            <td>
                 <span style="color:green">В сети</span>
-            @else
-                <span style="color:red">Не в сети</span>
+            </td>
+            <td>
+                <span style="color:green">онлайн</span>
+            </td>
+        @else
+            <td>
+                <span style="color:#ff0101">Не в сети</span>
+            </td>
+            <td>
+                <span style="color:#ff0101">был в сети {{$users->last_online_at}}</span>
+            </td>
             @endif
-        </td>
     </h3>
 </tr>
 @endforeach
