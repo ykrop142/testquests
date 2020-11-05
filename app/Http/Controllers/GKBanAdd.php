@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Bans;
 use App\Users;
 use Illuminate\Http\Request;
+use DB;
 
 class GKBanAdd extends Controller
 {
@@ -23,6 +24,20 @@ class GKBanAdd extends Controller
     {
         //$user = new Users();
         $user = Users::all();
+        $nametit= \DB::table('titles')
+            ->get();
+        $countuser=DB::table('users')
+            ->count('id');
+        $counttit=DB::table('titles')
+            ->count('id');
+        for ($i=0;$i<$countuser;$i++){
+            for ($j=0;$j<$counttit;$j++){
+                if($user[$i]->id_tit==$nametit[$j]->id){
+                    $user[$i]->id_tit=$nametit[$j]->name;
+                    $user[$i]->rgb=$nametit[$j]->RGB;
+            }
+            }
+        }
         return view('admin.users',compact('user'));
     }
 
