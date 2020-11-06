@@ -1,12 +1,4 @@
-<!doctype html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <style>
         .tabb {
             width: 70%; /* Ширина блока */
@@ -19,16 +11,13 @@
         }
     </style>
 </head>
-<body>
 @extends('layout')
 
-@section('title', 'Инфо о пользователях')
+@section('title', 'Информация о пользователях')
 
 @section('sidebar')
     @parent
 @endsection
-
-@section('namestr', 'Инфо о пользователях')
 
 @section('content')
 <table bordercolor="black" border="1" class="tabb" width="100%">
@@ -73,7 +62,7 @@
 <tr>
     <h3>
         <td>
-            <a href="/admin/viewprofil/{{$users->id}}">{{$users->login}}</a>
+            <a href="/admin/viewprofile/{{$users->id}}">{{$users->login}}</a>
         </td>
         <td>
             {{$users->email}}
@@ -120,5 +109,3 @@
 @endforeach
 </table>
 @endsection
-</body>
-</html>
