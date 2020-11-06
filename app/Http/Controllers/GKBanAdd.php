@@ -22,7 +22,6 @@ class GKBanAdd extends Controller
     }
     public function indexuser()
     {
-        //$user = new Users();
         $user = Users::all();
         $nametit= \DB::table('titles')
             ->get();
@@ -35,10 +34,26 @@ class GKBanAdd extends Controller
                 if($user[$i]->id_tit==$nametit[$j]->id){
                     $user[$i]->id_tit=$nametit[$j]->name;
                     $user[$i]->rgb=$nametit[$j]->RGB;
-            }
+                }
             }
         }
         return view('admin.users',compact('user'));
+    }
+
+    public function viewprofileuser($id)
+    {
+        $user = Users::findOrFail($id);
+        $nametit= \DB::table('titles')
+            ->get();
+        $counttit=DB::table('titles')
+            ->count('id');
+        for ($j=0;$j<$counttit;$j++){
+            if($user->id_tit==$nametit[$j]->id){
+                $user->id_tit=$nametit[$j]->name;
+                $user->rgb=$nametit[$j]->RGB;
+            }
+        }
+        return view('admin.viewprofile',compact('user'));
     }
 
     /**
