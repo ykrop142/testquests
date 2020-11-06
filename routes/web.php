@@ -28,6 +28,7 @@ Route::group(['prefix'=>'admin'],function (){
     Route::get('/','GKBanAdd@index')->middleware('auth');
     Route::get('/create','GKBanAdd@create')->middleware('auth');
     Route::post('/create','GKBanAdd@store')->middleware('auth');
+    Route::get('/viewprofile/{id}','GKBanAdd@viewprofileuser')->middleware('auth');
     Route::patch('/{id}','GKBanAdd@update')->middleware('auth');
     Route::delete('/{id}','GKBanAdd@destroy')->middleware('auth');
 });
