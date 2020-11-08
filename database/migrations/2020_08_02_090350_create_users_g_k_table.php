@@ -24,6 +24,7 @@ class CreateUsersGKTable extends Migration
             $table->integer('exp')->default('0');
             $table->integer('lvl')->default('1');
             $table->integer('varn')->default('0');
+            $table->integer('ban')->default('Null');
             $table->string('avatar')->default('https://test.greenkras.ru/image/avatars/noavatar.png');
             $table->boolean('auth')->default('0');
             $table->dateTime('last_online_at');
