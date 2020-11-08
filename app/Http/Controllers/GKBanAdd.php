@@ -6,7 +6,9 @@ use App\Bans;
 use App\Users;
 use Illuminate\Http\Request;
 use DB;
-
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 class GKBanAdd extends Controller
 {
     /**
@@ -17,9 +19,32 @@ class GKBanAdd extends Controller
     public function index()
     {
         $ban = Bans::all();
-        return view('admin.bans',compact('ban'));
-       // return view('admin.bans',compact('user'));
+        $user= \DB::table('users')
+            ->get();
+        $countuser=DB::table('users')
+            ->count('id');
+        $countban=DB::table('bans')
+            ->count('id');
+        for ($i=0;$i<$countuser;$i++){
+            for ($j=0;$j<$countban;$j++) {
+                if($user[$i]->id==$ban[$j]->id_user){
+                    $ban[$j]->user=$user[$i]->login;
+                }
+            }
+        }
+        $myCollectionObj = collect($ban);
+        $data = $this->paginate($myCollectionObj);
+        $data->setPath('/admin');
+        return view('admin.bans',compact('data'));
     }
+
+    public function paginate($items, $perPage = 10, $page = null)
+    {
+        $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
+        $items = $items instanceof Collection ? $items : Collection::make($items);
+        return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page);
+    }
+
     public function indexuser()
     {
         $user = Users::all();
@@ -47,12 +72,20 @@ class GKBanAdd extends Controller
             ->get();
         $counttit=DB::table('titles')
             ->count('id');
+        $checkban=DB::table('bans')
+            ->select('reason')
+            ->where('id_user','=',$user->login)
+            ->value('reason');
         for ($j=0;$j<$counttit;$j++){
             if($user->id_tit==$nametit[$j]->id){
                 $user->id_tit=$nametit[$j]->name;
                 $user->rgb=$nametit[$j]->RGB;
             }
         }
+        if($checkban!=''){
+            $user->reason=$checkban;
+        }
+
         return view('admin.viewprofile',compact('user'));
     }
 
@@ -80,10 +113,15 @@ class GKBanAdd extends Controller
             'validity' => ['required'],
         ]);
         $ban = new Bans();
-        $ban->id_user=request('id_user');
-        $ban->reason=request('reason');
-        $ban->validity=request('validity');
+        $ban->id_user=$validatedData['id_user'];
+        $ban->reason=$validatedData['reason'];
+        $ban->validity=$validatedData['validity'];
         $ban-> save();
+        if ($ban-> save()==true){
+            $user=DB::table('users')
+                ->where('id','=',$ban->id_user)
+                ->update(['ban'=>1]);
+        }
         return redirect('/admin');
     }
 
@@ -104,10 +142,8 @@ class GKBanAdd extends Controller
      * @param  \App\Bans  $bans
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        $bans = Bans::findOrFail($id);
-        return view('admin.edit',compact('bans'));
     }
 
     /**
@@ -136,6 +172,13 @@ class GKBanAdd extends Controller
      */
     public function destroy($id)
     {
+        $banid=DB::table('bans')
+            ->select('id_user')
+            ->where('id','=',$id)
+            ->value('id_user');
+        $user=DB::table('users')
+            ->where('id','=',$banid)
+            ->update(['ban'=>0]);
         Bans::find($id)->delete();
         return redirect('/admin');
     }
