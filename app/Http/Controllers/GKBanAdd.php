@@ -74,7 +74,7 @@ class GKBanAdd extends Controller
             ->count('id');
         $checkban=DB::table('bans')
             ->select('reason')
-            ->where('id_user','=',$user->login)
+            ->where('id_user','=',$user->id)
             ->value('reason');
         for ($j=0;$j<$counttit;$j++){
             if($user->id_tit==$nametit[$j]->id){
