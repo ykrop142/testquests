@@ -44,9 +44,8 @@
                     </span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a href="/admin"><i class="fas fa-user-shield"></i> Админка</a></li>
-                    <li><a href="/admin/create"><i class="fas fa-user-slash"></i> Забанить</a></li>
-                    <li><a href="/admin/users"><i class="fas fa-file-invoice"></i> инфо юз</a></li>
+                    <li><a href="/admin"><i class="fas fa-user-shield"></i> Бан лист</a></li>
+                    <li><a href="/admin/users"><i class="fas fa-file-invoice"></i> Пользователи</a></li>
                 </ul>
             </div>
             <div class="col">
