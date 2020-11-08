@@ -47,49 +47,67 @@
 @section('content')
 
     <table bordercolor="black" border="1" class="tabb" width="100%">
-        @foreach($ban as $bans)
+        <tr>
+            <h3>
+                <td>
+                    Логин пользователя
+                </td>
+                <td>
+                    Причина
+                </td>
+                <td>
+                    Дата разблокировки
+                </td>
+                <td colspan="2" align="center">
+                    Управление
+                </td>
+
+            </h3>
+        </tr>
+        @foreach($data as $datas)
             <tr>
                 <h3>
                     <td>
-                        {{ $bans->id_user }}
+                        {{ $datas->user }}
                     </td>
                     <td>
-                        {{ $bans->reason }}
+                        {{ $datas->reason }}
                     </td>
                     <td>
-                        {{$bans->validity}}
+                        {{$datas->validity}}
                     </td>
                     <td>
-                        <button type="button" id='btnban' class="btn-primary" data-toggle="modal" data-target="#editbanModal{{$bans->id}}">
+                        <button type="button" id='btnban' class="btn-primary" data-toggle="modal" data-target="#editbanModal{{$datas->id}}">
                             Редактировать
                         </button>
                     </td>
                     <td>
-                        <button type="button" id='btnunban' class="btn-primary" data-toggle="modal" data-target="#editunbanModal{{$bans->id}}">
+                        <button type="button" id='btnunban' class="btn-primary" data-toggle="modal" data-target="#editunbanModal{{$datas->id}}">
                             Разблокировать
                         </button>
                     </td>
                 </h3>
             </tr>
 
-            <div class="modal fade" id="editbanModal{{$bans->id}}" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+
+            <div class="modal fade" id="editbanModal{{$datas->id}}" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="ModalLabel">Редактор бана</h5>
                         </div>
                         <div class="modal-body">
-                            <form action="/admin/{{$bans->id}}" method="post">
+                            <form action="/admin/{{$datas->id}}" method="post">
                                 @method('PATCH')
                                 @csrf
                                 <div>
-                                    <input type="text" name="id_user" placeholder="Имя пользователя" value="{{$bans->id_user}}"/>
+                                    <input type="text" name="id_user" placeholder="Имя пользователя" value="{{$datas->id_user}}"/>
                                 </div>
                                 <div>
-                                    <input type="text" name="reason" placeholder="Причина" value="{{$bans->reason}}"/>
+                                    <input type="text" name="reason" placeholder="Причина" value="{{$datas->reason}}"/>
                                 </div>
                                 <div>
-                                    <input type="date" name="validity" placeholder="длительность" value="{{$bans->validity}}"/>
+                                    <input type="date" name="validity" placeholder="длительность" value="{{$datas->validity}}"/>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
@@ -101,18 +119,18 @@
                 </div>
             </div>
 
-            <div class="modal fade" id="editunbanModal{{$bans->id}}" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+            <div class="modal fade" id="editunbanModal{{$datas->id}}" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="ModalLabel">Редактор бана</h5>
                         </div>
                         <div class="modal-body">
-                            <form action="admin/{{$bans->id}}" method="post">
+                            <form action="admin/{{$datas->id}}" method="post">
                                 @method('DELETE')
                                 @csrf
                                 <div>
-                                    Вы уверены, что хотите разблокировать пользователя: {{$bans->id_user}}
+                                    Вы уверены, что хотите разблокировать пользователя: {{$datas->id_user}}
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
@@ -125,5 +143,6 @@
             </div>
         @endforeach
 </table>
+    {{ $data->links() }}
 @endsection
 
