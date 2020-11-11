@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAboutTable extends Migration
+class CreateOrdTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateAboutTable extends Migration
      */
     public function up()
     {
-        Schema::create('about', function (Blueprint $table) {
+        Schema::create('ord', function (Blueprint $table) {
             $table->id();
-            $table->string('text_about');
+            $table->string('id_item');
+            $table->string('session_tok');
         });
     }
 
@@ -26,6 +27,6 @@ class CreateAboutTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_about_');
+        Schema::dropIfExists('ord');
     }
 }
