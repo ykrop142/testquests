@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{ asset("css/bootstrap.min.css") }}">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ asset("css/dropmain.css") }}" type="text/css">
+    <script src="{{ asset("js/jquery.maskedinput.min.js") }}" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -25,19 +26,17 @@
                 <a href="/about"><i class="fas fa-home"></i> О нас</a>
             </div>
             <div class="col">
-                <a href="/"><i class="fas fa-home"></i> Контакты</a>
+                <a href="/contact"><i class="fas fa-home"></i> Контакты</a>
             </div>
             <div class="col">
-                <a href="/"><i class="fas fa-home"></i> Корзина (скок позиций)</a>
+                <a href="/orders"><i class="fas fa-home"></i> Корзина</a>
             </div>
-
-
         </div>
     </div>
 @show
 
-<div class="container">
-    @yield('content')
-</div>
+    <div class="container">
+        @yield('content')
+    </div>
 </body>
 </html>
