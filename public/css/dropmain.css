@@ -17,6 +17,34 @@
         text-decoration: none; /* Добавляем подчеркивание */
     }
 
+    .container > .row >.col-1 > .menu{
+        background: green;
+        border: 0px;
+    }
+
+    .container > .row >.col-1 > .menu > a {
+        text-decoration: none;
+        color: #c4a917;
+    }
+
+    .container > .row >.col-1 > .menu > a:hover {
+        text-decoration: none;
+        background: #9bff00;
+        border-color: #7d1ea5;
+        color: #1b4b72;
+    }
+
+     .btn-primary{
+         background: green;
+         border-color:#c4a917;
+         color: #c4a917;
+    }
+
+    .btn-primary:hover{
+        background: #9bff00;
+        border-color: #7d1ea5;
+        color: #1b4b72;
+    }
 }
 @media (max-width: 999px) {
     .containermain {
@@ -43,6 +71,30 @@
     }
 
     .container > .row >.col-1 {
-        margin-left: 30px;
+        margin-left: 70px;
+    }
+
+    .container > .row >.col-1 > .menu{
+        background: green;
+        border: 0px;
+        margin: 20px;
+    }
+
+    .container > .row >.col-1 > .menu > a {
+        text-decoration: none;
+        color: #c4a917;
+    }
+
+    .container > .row >.col-1 > .menu > a:hover {
+        text-decoration: none;
+        background: #9bff00;
+        border-color: #7d1ea5;
+        color: #1b4b72;
+    }
+
+    .btn-primary{
+        background: green;
+        border-color:#c4a917;
+        color: #c4a917;
     }
 }
