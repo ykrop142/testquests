@@ -17,6 +17,7 @@ class CreateOrdTable extends Migration
             $table->id();
             $table->string('id_item');
             $table->string('session_tok');
+            $table->dateTime('create_at');
         });
     }
 
