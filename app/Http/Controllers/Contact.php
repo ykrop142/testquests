@@ -28,6 +28,10 @@ class Contact extends Controller
                 $text='Ваше обращение успешно отправлено!';
                 $request->session()->pull('status');
                 return response()->view('/alert', compact('text'));
+           }else if($data['status'][0]=='orders'){
+                $text='Cпасибо за заказ';
+                $request->session()->pull('status');
+                return response()->view('/alert', compact('text'));
             }
         }else{
             $request->session()->pull('status');
