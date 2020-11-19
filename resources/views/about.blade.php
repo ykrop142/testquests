@@ -15,6 +15,7 @@
     @parent
 @endsection
 
+
 @section('content')
     @foreach($about as $abouts)
         <div class="text">

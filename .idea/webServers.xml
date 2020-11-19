@@ -3,7 +3,7 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="aa3c3d93-e9de-4acd-8a0c-fc800b083a9e" name="greenkras" url="https://test.greenkras.ru">
-        <fileTransfer rootFolder="/var/www/ykrop142" accessType="SFTP" host="188.120.225.165" port="22" sshConfigId="ed25bab7-6abe-4049-b190-7a5275ac1652" sshConfig="root@188.120.225.165:22 password">
+        <fileTransfer rootFolder="/var/www/ykrop142/data/www" accessType="SFTP" host="188.120.225.165" port="22" sshConfigId="ed25bab7-6abe-4049-b190-7a5275ac1652" sshConfig="root@188.120.225.165:22 password">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
